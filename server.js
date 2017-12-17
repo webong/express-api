@@ -4,7 +4,7 @@
 // =============================================================================
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:root@ds159926.mlab.com:59926/bears-api'); // connect to our database
+mongoose.connect('mongodb://wizzydayo:saxifrage100@ds159926.mlab.com:59926/bears-api'); // connect to our database
 
 var Bear = require('./app/models/bear');
 
