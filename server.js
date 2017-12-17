@@ -4,7 +4,7 @@
 // =============================================================================
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:root@ds159926.mlab.com:59926/bears-api'); // connect to our database
+mongoose.connect('mongodb://wizzydayo:saxifrage100@ds159926.mlab.com:59926/bears-api'); // connect to our database
 
 var Bear = require('./app/models/bear');
 
@@ -41,6 +41,15 @@ router.get('/', function (req, res) {
 // more routes for our API will happen here
 
 
+ // get all the bears (accessed at GET http://localhost:8080/api/bears)
+    .get(function (req, res) {
+    Bear.find(function (err, bears) {
+        if (err)
+            res.send(err);
+
+        res.json(bears);
+    });
+});
 
 
 
