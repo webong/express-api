@@ -2,10 +2,11 @@
 
 // BASE SETUP
 // =============================================================================
-var mongoose   = require('mongoose');
-mongoose.connect('mongodb://root:root@ds141796.mlab.com:41796/users-api'); // connect to our database
 
-var User = require('./app/models/user');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://root:root@ds159926.mlab.com:59926/bears-api'); // connect to our database
+
+var Bear = require('./app/models/bear');
 
 
 // call the packages we need
@@ -22,7 +23,9 @@ var port = process.env.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router();  //get an instance of the express router             
+var router = express.Router();              // get an instance of the express Router
+
+
 // middleware to use for all requests
 router.use(function (req, res, next) {
     // do logging
@@ -35,9 +38,11 @@ router.get('/', function (req, res) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
 
-
-
 // more routes for our API will happen here
+
+
+
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
