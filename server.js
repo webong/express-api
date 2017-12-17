@@ -4,7 +4,7 @@
 // =============================================================================
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:root@ds159926.mlab.com:59926/bears-api'); // connect to our database
+mongoose.connect('mongodb://wizzydayo:saxifrage100@ds159926.mlab.com:59926/bears-api'); // connect to our database
 
 var Bear = require('./app/models/bear');
 
@@ -39,6 +39,26 @@ router.get('/', function (req, res) {
 });
 
 // more routes for our API will happen here
+
+// on routes that end in /bears
+// ----------------------------------------------------
+router.route('/bears')
+
+    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    .post(function (req, res) {
+
+        var bear = new Bear();      // create a new instance of the Bear model
+        bear.name = req.body.name;  // set the bears name (comes from the request)
+
+        // save the bear and check for errors
+        bear.save(function (err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Bear created!' });
+        });
+
+    });
 
 
 
